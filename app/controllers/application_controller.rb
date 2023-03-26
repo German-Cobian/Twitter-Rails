@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_username_form
-    return if controller_name == "usernames"
     redirect_to new_username_path
   end
 end
