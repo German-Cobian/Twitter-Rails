@@ -7,8 +7,17 @@ class UsernamesController < ApplicationController
   end
 
   def update
-    current_user.update(username_params)
-    redirect_to dashboard_path
+    if username_params[:username].present? && current_user.update(username_params)
+      flash[:notice] = "Username successfully updated"
+      redirect_to dashboard_path
+    else
+      flash[:alert] = if username_params[:username].blank?
+                        "please set a username"
+                      else
+                        current_users.errors.full_messages.join(",")
+                      end
+      redirect_to new_username_path
+    end
   end
 
   private
