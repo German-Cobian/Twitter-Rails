@@ -1,0 +1,46 @@
+<aside class="col side-navbar">
+  <%= link_to dashboard_path, class: "d-flex align-items-center mb-2" do %>
+    <div class="px-2 py-2 rounded-circle">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "twitter_icon.png", width: "32" %></span>
+    </div>
+  <% end %>
+  <%= link_to dashboard_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+    <div class="px-4 py-2 rounded-pill">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "home.png", width: "32" %></span>
+      Home
+    </div>
+  <% end %>
+  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2" do %>
+    <div class="px-4 py-2 rounded-pill">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "hash.png", width: "32" %></span>
+      Explore
+    </div>
+  <% end %>
+  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2" do %>
+    <div class="px-4 py-2 rounded-pill">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "bell.png", width: "32" %></span>
+      Notifications
+    </div>
+  <% end %>
+  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2" do %>
+    <div class="px-4 py-2 rounded-pill">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "envelope.png", width: "32" %></span>
+      Messages
+    </div>
+  <% end %>
+  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2" do %>
+    <div class="px-4 py-2 rounded-pill">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "bookmark.png", width: "32", height: "32" %></span>
+      Bookmarks
+    </div>
+  <% end %>
+  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2" do %>
+    <div class="px-4 py-2 rounded-pill">
+      <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "user.png", width: "32" %></span>
+      Profile
+    </div>
+  <% end %>
+  <div class="d-flex align-items-center fs-5 mb-3"> 
+      <%= button_tag "Tweet", class: "btn btn-lg btn-twitter rounded-pill w-100 mx-4" %>
+  </div>
+</aside>
