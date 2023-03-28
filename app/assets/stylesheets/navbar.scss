@@ -1,0 +1,9 @@
+.side-navbar {
+  a {
+    text-decoration: none;
+    color: black;
+    div:hover {
+      background-color: $gray-200;
+    }
+  }
+}

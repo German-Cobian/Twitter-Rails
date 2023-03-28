@@ -1,0 +1,9 @@
+.btn-twitter {
+  background-color: $twitter-blue;
+  color: $white;
+
+  &:hover {
+    background-color: $twitter-blue-dark;
+    color: $white;
+  }
+}
