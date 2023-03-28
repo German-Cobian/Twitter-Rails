@@ -1,0 +1,6 @@
+<%=form_with model: Tweet.new, url: tweets_path, method: :post, local: true, class: "w-100" do |f| %>
+  <%= f.text_area :body, placeholder: "What's happening", class: "form-control tweet-input w-100 mb-4" %>
+  <div class="d-flex justify-content-end">
+    <%= f.submit "Tweet", class: "btn btn-lg btn-twitter rounded-pill" %>
+  </div>
+<% end %>
