@@ -1,0 +1,6 @@
+.tweet {
+  &:hover {
+    background-color: $gray-100;
+    cursor: pointer;
+  }
+}

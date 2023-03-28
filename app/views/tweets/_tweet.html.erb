@@ -1,0 +1,8 @@
+<div class="tweet py-3 px-2">
+  <% if(Time.zone.now - tweet.created_at) > 1.day %>
+    <p>@<%= tweet.user.username %> . <%= tweet.created_at.strftime("%b %-d") %></p>
+  <% else %>
+    <p>@<%= tweet.user.username %> . <%= time_ago_in_words(tweet.created_at) %></p>
+  <% end %>
+  <p class="mb-0"><%= tweet.body %></p>
+</div>
