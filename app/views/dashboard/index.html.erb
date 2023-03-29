@@ -6,9 +6,9 @@
   <div class="mb-4"> 
     <%= render "shared/tweet_form" %>
   </div>
-  <% Tweet.order(created_at: :desc).each do |tweet| %>
-    <%= render "tweets/tweet", tweet: tweet %> <!-- Would work as well: <%= render Tweet.order(created_at: :desc) %> -->
-  <% end %>
+  <div id="tweets">
+    <%= render Tweet.order(created_at: :desc) %> 
+  </div>
 </div>
     
 <div class="col">
