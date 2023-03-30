@@ -1,5 +1,4 @@
-<%= form_with model: Tweet.new, url: tweets_path, method: :post, class: "w-100" |f| %> 
-  <!-- 'local: true' request eliminated in order to make this into a turbo request -->
+<%= form_with model: Tweet.new, url: tweets_path, method: :post, class: "w-100", data: { controller: "tweet-form" } do |f| %> 
   <%= f.text_area :body, placeholder: "What's happening", class: "form-control tweet-input w-100 mb-4" %>
   <div class="d-flex justify-content-end">
     <%= f.submit "Tweet", class: "btn btn-lg btn-twitter rounded-pill" %>
