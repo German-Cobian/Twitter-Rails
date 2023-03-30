@@ -1,6 +1,6 @@
-<div class="px-5 py-5">
+<div class="d-flex flew-row justify-content-center">
   
-  <div class="col-3 border boder-dark">
+  <div class="col-6 border boder-dark my-5">
 
     <h2 class="mx-5 my-3">Set your username</h2>
 
@@ -12,8 +12,14 @@
       </div>
 
       <div class="mx-5 my-3">
-        <%= f.submit "set username", class: "btn btn-primary" %>
+        <%= f.label :display_name, class: "form-label" %>
+        <%= f.text_field :display_name, class: "form-control" %>
       </div>
+
+      <div class="mx-5 my-3">
+        <%= f.submit "set username", class: "btn btn-twitter rounded-pill" %>
+      </div>
+      
     <% end %>
 
   </div>
