@@ -2,10 +2,10 @@
   <div class="tweet py-3 px-2 border-bottom">
     <div class="d-flex flex-row">  
       <div class="me-2">
-        <%= image_tag tweet_presenter.user.avatar, size: "40x40", class: "rounded-circle" %>
+        <%= image_tag tweet_presenter.avatar, size: "40x40", class: "rounded-circle" %>
       </div>
       <div>
-          <p class="mt-2"><%= tweet_presenter.user.display_name %> @<%= tweet_presenter.user.username %> . <%= tweet_presenter.created_at %></p>
+          <p class="mt-2"><%= tweet_presenter.display_name %> @<%= tweet_presenter.username %> . <%= tweet_presenter.created_at %></p>
       </div>
     </div>
       <p class="mb-0"><%= tweet_presenter.body %></p>

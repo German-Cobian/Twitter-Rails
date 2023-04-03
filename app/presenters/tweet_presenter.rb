@@ -8,6 +8,7 @@ class TweetPresenter
   attr_reader :tweet
 
   delegate :user, :body, to: :tweet
+  delegate :username, :display_name, :avatar, to: :user
 
   def created_at
     if(Time.zone.now - tweet.created_at) > 1.day
@@ -18,3 +19,8 @@ class TweetPresenter
   end
 
 end
+
+# `delegate: :username, :display_name, :avatar, to: :user` permits a more succinct way of expressing the following methods:
+# def username      def display_name      def avatar
+#   user.username     user.display_name     user.avatar
+# end               end                   end
