@@ -3,4 +3,17 @@
     background-color: $gray-100;
     cursor: pointer;
   }
+
+  .action-links {
+    a {
+      span {
+        position:relative;
+        top: 3px;
+      }
+
+      &:hover {
+        color: $twitter-blue !important;
+      }
+    }
+  }
 }

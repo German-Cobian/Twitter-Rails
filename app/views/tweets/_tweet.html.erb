@@ -9,5 +9,38 @@
       </div>
     </div>
       <p class="mb-0"><%= tweet_presenter.body %></p>
+
+    <div class="d-flex justify-content-between align-items-center action-links">
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black retweets" do %>
+          <%= image_tag "analytics.png", size: "20x20",class: "me-1" %>
+          <span>Views<span>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black likes" do %>
+          <%= image_tag "speech.png", size: "20x20",class: "me-1" %>
+          <span>Replies<span>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black retweets" do %>
+          <%= image_tag "retweet.png", size: "20x20",class: "me-1" %>
+          <span>Retweets<span>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black likes" do %>
+          <%= image_tag "heart.png", size: "20x20",class: "me-1" %>
+          <span>Likes<span>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to "#", class: "text-decoration-none text-black bookmarks" do %>
+          <%= image_tag "bookmark.png", size: "20x20",class: "me-1" %>
+          <span>Bookmark<span>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
