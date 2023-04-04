@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resources :tweets, only: :create
+  resources :tweets, only: :create do
+    resources :likes, only: [:create, :destroy]
+  end
+  
   get :dashboard, to: "dashboard#index"
   resources :usernames, only: [:new, :update]
+  
 end

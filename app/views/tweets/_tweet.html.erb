@@ -30,9 +30,9 @@
         <% end %>
       </div>
       <div>
-        <%= link_to "#", class: "text-decoration-none text-black likes" do %>
+        <%= link_to tweet_likes_path(tweet_presenter.tweet), data: { "turbo-method": "post" }, class: "text-decoration-none text-black likes" do %>
           <%= image_tag "heart.png", size: "20x20",class: "me-1" %>
-          <span>Likes<span>
+          <span><%= tweet_presenter.likes.size %><span>
         <% end %>
       </div>
       <div>

@@ -7,7 +7,7 @@ class TweetPresenter
 
   attr_reader :tweet
 
-  delegate :user, :body, to: :tweet
+  delegate :user, :body, :likes, to: :tweet
   delegate :username, :display_name, :avatar, to: :user
 
   def created_at
