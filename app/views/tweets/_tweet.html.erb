@@ -31,8 +31,12 @@
       </div>
       <div>
         <%= link_to tweet_likes_path(tweet_presenter.tweet), data: { "turbo-method": "post" }, class: "text-decoration-none text-black likes" do %>
-          <%= image_tag "heart.png", size: "20x20",class: "me-1" %>
-          <span><%= tweet_presenter.likes.size %><span>
+          <% if tweet_presenter.likes.include?(current_user.likes.first) %>
+            <%= image_tag "heart-full.png", size: "20x20",class: "me-1" %>
+          <% else %>
+            <%= image_tag "heart.png", size: "20x20",class: "me-1" %>
+          <% end %>
+            <span><%= tweet_presenter.likes.size %><span>
         <% end %>
       </div>
       <div>
