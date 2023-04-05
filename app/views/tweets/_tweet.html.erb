@@ -30,15 +30,15 @@
         <% end %>
       </div>
       <div>
-        <% if tweet_presenter.likes.include?(current_user.likes.find_by(tweet: tweet_presenter.tweet)) %>
+        <% if current_user.likes.pluck(:tweet_id).include?(tweet_presenter.tweet.id) %>
           <%= link_to tweet_like_path(tweet_presenter.tweet, tweet_presenter.tweet.likes.find_by(user: current_user)), data: { "turbo-method": "delete" }, class: "text-decoration-none text-black" do %>
             <%= image_tag "heart-full.png", size: "20x20",class: "me-1" %>
-            <span class=""><%= tweet_presenter.likes.size %></span>
+            <span class=""><%= tweet_presenter.likes_count %></span>
           <% end %>
         <% else %>
           <%= link_to tweet_likes_path(tweet_presenter.tweet), data: { "turbo-method": "post" }, class: "text-decoration-none text-black likes" do %>
             <%= image_tag "heart.png", size: "20x20", class: "me-1" %>
-            <span class=""><%= tweet_presenter.likes.size %></span>
+            <span class=""><%= tweet_presenter.likes_count %></span>
           <% end %>
         <% end %>
       </div>
