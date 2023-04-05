@@ -7,6 +7,8 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    @like = tweet.likes.find(params[:id])
+    @like.destroy
   end
 
   private
