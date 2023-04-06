@@ -30,8 +30,8 @@
         <% end %>
       </div>
       <div>
-        <% if current_user.likes.pluck(:tweet_id).include?(tweet_presenter.tweet.id) %>
-          <%= link_to tweet_like_path(tweet_presenter.tweet, tweet_presenter.tweet.likes.find_by(user: current_user)), data: { "turbo-method": "delete" }, class: "text-decoration-none text-black" do %>
+        <% if current_user.liked_tweets.include?(tweet_presenter.tweet) %>
+          <%= link_to tweet_like_path(tweet_presenter.tweet, current_user.liked_tweets.find_by(id: tweet_presenter.tweet.id)), data: { "turbo-method": "delete" }, class: "text-decoration-none text-black" do %>
             <%= image_tag "heart-full.png", size: "20x20",class: "me-1" %>
             <span class=""><%= tweet_presenter.likes_count %></span>
           <% end %>

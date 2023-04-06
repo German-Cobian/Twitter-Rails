@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @tweets = Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }
+    @tweets = Tweet.includes(user: :likes).order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }
   end
 
 end
@@ -14,3 +14,6 @@ end
 # 
 # Or in this manner using a collection:
 # <%= render partial: "tweets/tweet", collection: Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }, as: :tweet_presenter %>
+
+# Eager loading of user (that is, `includes(:user)` should have been introduced a couple of commits back.
+# Here, we already load the likes on the user (that is, `include(user: :likes)`)
