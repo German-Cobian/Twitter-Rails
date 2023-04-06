@@ -2,18 +2,8 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @tweets = Tweet.includes(user: :likes).order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }
+    @tweets = Tweet.includes(user: :likes).order(created_at: :desc).map do |tweet|
+      TweetPresenter.new(tweet: tweet, current_user: current_user)
+    end
   end
-
 end
-
-# Line was imported from dasboard/index, where it was used in either of the following manners:
-# <% Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }.each do |tweet-presenter| %>
-#  <%= render "tweets/tweet", locals: { tweet_presenter: :tweet_presenter } %>
-# <% end %>
-# 
-# Or in this manner using a collection:
-# <%= render partial: "tweets/tweet", collection: Tweet.order(created_at: :desc).map { |tweet| TweetPresenter.new(tweet) }, as: :tweet_presenter %>
-
-# Eager loading of user (that is, `includes(:user)` should have been introduced a couple of commits back.
-# Here, we already load the likes on the user (that is, `include(user: :likes)`)
