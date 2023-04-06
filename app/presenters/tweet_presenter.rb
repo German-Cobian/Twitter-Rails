@@ -13,7 +13,7 @@ class TweetPresenter
   delegate :username, :display_name, :avatar, to: :user
 
   def tweet_liked_by_current_user
-    @tweet_liked_by_current_user ||= current_user.liked_tweets.include?(tweet)
+    @tweet_liked_by_current_user ||= tweet.liked_users.include?(current_user)
   end
 
   # alias method used so as to add the '?' to the 'tweet_liked_by_current_user' method
