@@ -15,14 +15,12 @@ RSpec.describe "Likes", type: :request do
   end
 
   describe "DELETE destroy" do
-    context "when user is not logged in" do
-        it "deletes a like" do
-          like = create(:like, user: user, tweet: tweet)
-          expect do 
-            delete tweet_like_path(tweet, like)
-          end.to change { Like.count }.by(-1)
-        expect(response).to have_http_status(:success)
-      end
+    it "deletes a like" do
+      like = create(:like, user: user, tweet: tweet)
+      expect do 
+        delete tweet_like_path(tweet, like)
+      end.to change { Like.count }.by(-1)
+      expect(response).to have_http_status(:success)
     end
   end
 

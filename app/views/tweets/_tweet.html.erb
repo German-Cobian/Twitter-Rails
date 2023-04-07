@@ -30,15 +30,15 @@
         <% end %>
       </div>
       <div>
-        <%= link_to tweet_presenter.tweet_like_or_not_path, data: { "turbo-method": tweet_presenter.turbo_data_method }, class: "text-decoration-none text-black" do %>
+        <%= link_to tweet_presenter.tweet_like_or_not_path, data: { "turbo-method": tweet_presenter.turbo_liked_data_method }, class: "text-decoration-none text-black" do %>
           <%= image_tag tweet_presenter.like_heart_image, size: "20x20",class: "me-1" %>
           <span class=""><%= tweet_presenter.likes_count %></span>
         <% end %>
       </div>
       <div>
-        <%= link_to "#", class: "text-decoration-none text-black bookmarks" do %>
-          <%= image_tag "bookmark.png", size: "20x20",class: "me-1" %>
-          <span>Bookmark<span>
+        <%= link_to tweet_presenter.tweet_bookmarked_or_not_path, data: { "turbo-method": tweet_presenter.turbo_bookmarked_data_method }, class: "text-decoration-none text-black bookmarks" do %>
+          <%= image_tag tweet_presenter.bookmark_image, size: "20x20",class: "me-1" %>
+          <span><%= tweet_presenter.bookmark_text %><span>
         <% end %>
       </div>
     </div>

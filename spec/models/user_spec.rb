@@ -5,6 +5,8 @@ RSpec.describe User, type: :model do
   #it { should validate_uniqueness_of(:username).case_insensitive.allow_blank }
   it { should have_many(:likes).dependent(:destroy) }
   it { should have_many(:liked_tweets).through(:likes).source(:tweet) }
+  it { should have_many(:bookmarks).dependent(:destroy) }
+  it { should have_many(:bookmarked_tweets).through(:bookmarks).source(:tweet) }
 
   describe "setting display_name" do
     context "when display_name is set" do

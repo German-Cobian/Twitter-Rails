@@ -16,10 +16,7 @@ class TweetPresenter
     @tweet_liked_by_current_user ||= tweet.liked_users.include?(current_user)
   end
 
-  # alias method used so as to add the '?' to the 'tweet_liked_by_current_user' method
   alias_method :tweet_liked_by_current_user?, :tweet_liked_by_current_user
-  
-  # The logic for the following methods was previously in views/tweets/tweet
   
   def tweet_like_or_not_path
     if tweet_liked_by_current_user?
@@ -29,7 +26,7 @@ class TweetPresenter
     end
   end
 
-  def turbo_data_method
+  def turbo_liked_data_method
     if tweet_liked_by_current_user?
       "delete"
     else
@@ -42,6 +39,44 @@ class TweetPresenter
       "heart-full.png"
     else
       "heart.png"
+    end
+  end
+
+  def tweet_bookmarked_by_current_user
+    @tweet_bookmarked_by_current_user ||= tweet.bookmarked_users.include?(current_user)
+  end
+
+  alias_method :tweet_bookmarked_by_current_user?, :tweet_bookmarked_by_current_user
+
+  def tweet_bookmarked_or_not_path
+    if tweet_bookmarked_by_current_user?
+      tweet_bookmark_path(tweet, current_user.bookmarks.find_by(tweet: tweet)) 
+    else
+      tweet_bookmarks_path(tweet)  
+    end
+  end
+
+  def turbo_bookmarked_data_method
+    if tweet_bookmarked_by_current_user?
+      "delete"
+    else
+      "post"
+    end
+  end
+
+  def bookmark_image
+    if tweet_bookmarked_by_current_user?
+      "bookmark-full.svg"
+    else
+      "bookmark.png"
+    end
+  end
+
+  def bookmark_text
+    if tweet_bookmarked_by_current_user?
+      "bookmarked"
+    else
+      "Bookmark"
     end
   end
 
