@@ -12,6 +12,8 @@ class TweetPresenter
   delegate :user, :body, :likes, :likes_count, to: :tweet
   delegate :username, :display_name, :avatar, to: :user
 
+  # *** Likes section
+
   def tweet_liked_by_current_user
     @tweet_liked_by_current_user ||= tweet.liked_users.include?(current_user)
   end
@@ -41,6 +43,8 @@ class TweetPresenter
       "heart.png"
     end
   end
+
+# *** Bookmarks section
 
   def tweet_bookmarked_by_current_user
     @tweet_bookmarked_by_current_user ||= tweet.bookmarked_users.include?(current_user)
@@ -77,6 +81,38 @@ class TweetPresenter
       "bookmarked"
     else
       "Bookmark"
+    end
+  end
+
+  # *** Retweets section
+
+  def tweet_retweeted_by_current_user
+    @tweet_retweeted_by_current_user ||= tweet.retweeted_users.include?(current_user)
+  end
+
+  alias_method :tweet_retweeted_by_current_user?, :tweet_retweeted_by_current_user
+
+  def tweet_retweeted_or_not_path
+    if tweet_retweeted_by_current_user?
+      tweet_retweet_path(tweet, current_user.retweets.find_by(tweet: tweet)) 
+    else
+      tweet_retweets_path(tweet)  
+    end
+  end
+
+  def turbo_retweeted_data_method
+    if tweet_retweeted_by_current_user?
+      "delete"
+    else
+      "post"
+    end
+  end
+
+  def retweet_image
+    if tweet_retweeted_by_current_user?
+      "retweet-full.png"
+    else
+      "retweet.png"
     end
   end
 
