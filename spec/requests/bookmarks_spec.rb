@@ -19,7 +19,7 @@ RSpec.describe "Bookmark", type: :request do
     it "deletes a bookmark" do
       bookmark = create(:bookmark, user: user, tweet: tweet)
       expect do 
-        delete tweet_bookmark_path(tweet, like)
+        delete tweet_bookmark_path(tweet, bookmark)
       end.to change { Bookmark.count }.by(-1)
       expect(response).to have_http_status(:success)
     end
