@@ -1,0 +1,20 @@
+<%= turbo_frame_tag dom_id(@tweet), class:"col-6 d-flex flex-row border border-dark" do %>
+    <div class="d-flex flex-col">
+      <div class="ms-3">
+        <div>
+          <%= link_to dashboard_path, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
+            <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
+            <span style="position: relative; top: 2px">Tweet</span>
+          <% end %>
+        </div>
+        <div>
+          <%= @tweet.body %>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+<div class="col-3 border border-danger">
+  <h4 class="text-danger ms-3">This is the Show third column</h4>
+</div>
+

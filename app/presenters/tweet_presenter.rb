@@ -4,7 +4,7 @@ class TweetPresenter
 
   def initialize(tweet:, current_user:)
     @tweet = tweet
-    @current_user = user
+    @current_user = current_user
   end
 
   attr_reader :tweet, :current_user
@@ -115,6 +115,8 @@ class TweetPresenter
       "retweet.png"
     end
   end
+
+# *** Shared by all sections
 
   def created_at
     if(Time.zone.now - tweet.created_at) > 1.day

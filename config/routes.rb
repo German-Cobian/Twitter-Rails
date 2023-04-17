@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resources :tweets, only: :create do
+  resources :tweets, only: [:show, :create] do
     resources :likes, only: [:create, :destroy]
     resources :bookmarks, only: [:create, :destroy]
     resources :retweets, only: [:create, :destroy]

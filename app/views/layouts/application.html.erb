@@ -19,8 +19,8 @@
       <% if controller_name == "usernames" %>
         <%= yield %>
       <% else %>
-        <div class="container py-2">
-          <div class="row">
+        <div class="container py-2 border border-dark">
+          <div class="d-flex flex-row">
             <%= render "shared/sidebar" %>
             <%= yield %>
           </div>
