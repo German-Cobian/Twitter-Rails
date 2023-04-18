@@ -2,7 +2,7 @@
     <div class="d-flex flex-col">
       <div class="ms-3">
         <div>
-          <%= link_to dashboard_path, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
+          <%= link_to dashboard_path, data: {turbo_frame: :_top}, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
             <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
             <span style="position: relative; top: 2px">Tweet</span>
           <% end %>

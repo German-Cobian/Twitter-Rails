@@ -67,4 +67,14 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Log the turbo frame header
+  ActiveSupport::Notifications.subscribe("start_processing.action_controller") do |name, start, finish, id, payload|
+    if payload[:headers]["Turbo-Frame"]
+      Rails.logger.debug do
+        "\e[0;35mTurbo-Frame:\e[0m #{payload[:headers]["Turbo-Frame"]}"
+      end
+    end
+  end
+
 end
