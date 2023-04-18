@@ -11,7 +11,7 @@ RSpec.describe "Bookmark", type: :request do
       expect do
       post tweet_bookmarks_path(tweet)
       end.to change { Bookmark.count }.by(1)
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:redirect)
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe "Bookmark", type: :request do
       expect do 
         delete tweet_bookmark_path(tweet, bookmark)
       end.to change { Bookmark.count }.by(-1)
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:redirect)
     end
   end
 

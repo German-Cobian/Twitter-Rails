@@ -4,11 +4,21 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.create(tweet: tweet)
 
+    if @like.save
+      respond_to do |format|
+        format.html { redirect_to dashboard_path }
+        format.turbo_stream
+      end
+    end
   end
 
   def destroy
     @like = tweet.likes.find(params[:id])
     @like.destroy
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.turbo_stream
+    end
   end
 
   private

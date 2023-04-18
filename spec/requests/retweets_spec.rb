@@ -11,17 +11,17 @@ RSpec.describe "Retweets", type: :request do
       expect do
       post tweet_retweets_path(tweet)
       end.to change { Retweet.count }.by(1)
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:redirect)
     end
   end
 
   describe "DELETE destroy" do
     it "deletes a retweet" do
-      bookmark = create(:retweet, user: user, tweet: tweet)
+      retweet = create(:retweet, user: user, tweet: tweet)
       expect do 
         delete tweet_retweet_path(tweet, retweet)
       end.to change { Retweet.count }.by(-1)
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:redirect)
     end
   end
 
