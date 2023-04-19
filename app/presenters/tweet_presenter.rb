@@ -78,7 +78,7 @@ class TweetPresenter
 
   def bookmark_text
     if tweet_bookmarked_by_current_user?
-      "bookmarked"
+      "Bookmarked"
     else
       "Bookmark"
     end

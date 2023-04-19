@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(tweet_presenter.tweet) do %>
-  <div data-controller="tweet-card" data-tweet-path="<%= tweet_path(tweet_presenter.tweet) %>" class="tweet py-3 px-2 border-bottom">
+  <div data-controller="tweet-card" data-tweet-path="<%= tweet_path(tweet_presenter.tweet) %>" class="tweet hover py-3 px-2 border-bottom">
     <div class="d-flex flex-row">  
       <div class="me-2">
         <%= image_tag tweet_presenter.avatar, size: "40x40", class: "rounded-circle" %>

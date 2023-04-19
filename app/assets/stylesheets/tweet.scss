@@ -1,7 +1,10 @@
 .tweet {
-  &:hover {
-    background-color: $gray-100;
-    cursor: pointer;
+
+  &.hover{
+    &:hover {
+      background-color: $gray-100;
+      cursor: pointer;
+    }
   }
 
   .action-links {
