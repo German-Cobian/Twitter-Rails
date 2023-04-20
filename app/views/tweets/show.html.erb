@@ -28,37 +28,39 @@
               </div>
             </div>
             <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do %>
-              <div class="d-flex justify-content-between align-items-center action-links">
-                <div>
-                  <%= link_to "#", class: "text-decoration-none text-black views" do %>
-                    <%= image_tag "analytics.png", size: "20x20", class: "me-1" %>
-                    <span>Views<span>
-                  <% end %>
-                </div>
-                <div>
-                
-                  <%= link_to tweet_path(@tweet_presenter.tweet), target: :_top, class: "text-decoration-none text-black replies" do %>
-                    <%= image_tag "speech.png", size: "20x20", class: "me-1" %>
-                    <span>Replies<span>
-                  <% end %>
-                </div>
-                <div>
-                  <%= link_to @tweet_presenter.tweet_retweeted_or_not_path, data: { "turbo-method": @tweet_presenter.turbo_retweeted_data_method }, class: "text-decoration-none text-black retweets" do %>
-                    <%= image_tag @tweet_presenter.retweet_image, size: "20x20", class: "me-1" %>
-                    <span><%= @tweet_presenter.retweets_count %><span>
-                  <% end %>
-                </div>
-                <div>
-                  <%= link_to @tweet_presenter.tweet_like_or_not_path, data: { "turbo-method": @tweet_presenter.turbo_liked_data_method }, class: "text-decoration-none text-black" do %>
-                    <%= image_tag @tweet_presenter.like_heart_image, size: "20x20", class: "me-1" %>
-                    <span class=""><%= @tweet_presenter.likes_count %></span>
-                  <% end %>
-                </div>
-                <div>
-                  <%= link_to @tweet_presenter.tweet_bookmarked_or_not_path, data: { "turbo-method": @tweet_presenter.turbo_bookmarked_data_method }, class: "text-decoration-none text-black bookmarks" do %>
-                    <%= image_tag @tweet_presenter.bookmark_image, size: "20x20", class: "me-1" %>
-                    <span><%= @tweet_presenter.bookmark_text %><span>
-                  <% end %>
+              <div class="turbo-frame-stats">
+                <div class="d-flex justify-content-between align-items-center action-links">
+                  <div>
+                    <%= link_to "#", class: "text-decoration-none text-black views" do %>
+                      <%= image_tag "analytics.png", size: "20x20", class: "me-1" %>
+                      <span>Views<span>
+                    <% end %>
+                  </div>
+                  <div>
+                  
+                    <%= link_to tweet_path(@tweet_presenter.tweet), target: :_top, class: "text-decoration-none text-black replies" do %>
+                      <%= image_tag "speech.png", size: "20x20", class: "me-1" %>
+                      <span>Replies<span>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= link_to @tweet_presenter.tweet_retweeted_or_not_path, data: { "turbo-method": @tweet_presenter.turbo_retweeted_data_method }, class: "text-decoration-none text-black retweets" do %>
+                      <%= image_tag @tweet_presenter.retweet_image, size: "20x20", class: "me-1" %>
+                      <span><%= @tweet_presenter.retweets_count %><span>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= link_to @tweet_presenter.tweet_like_or_not_path, data: { "turbo-method": @tweet_presenter.turbo_liked_data_method }, class: "text-decoration-none text-black" do %>
+                      <%= image_tag @tweet_presenter.like_heart_image, size: "20x20", class: "me-1" %>
+                      <span class=""><%= @tweet_presenter.likes_count %></span>
+                    <% end %>
+                  </div>
+                  <div>
+                    <%= link_to @tweet_presenter.tweet_bookmarked_or_not_path, data: { "turbo-method": @tweet_presenter.turbo_bookmarked_data_method }, class: "text-decoration-none text-black bookmarks" do %>
+                      <%= image_tag @tweet_presenter.bookmark_image, size: "20x20", class: "me-1" %>
+                      <span><%= @tweet_presenter.bookmark_text %><span>
+                    <% end %>
+                  </div>
                 </div>
               </div>
             <% end %>
