@@ -10,7 +10,7 @@ class TweetPresenter
   attr_reader :tweet, :current_user
 
   delegate :user, :body, :likes, :likes_count, :retweets_count, to: :tweet
-  delegate :username, :display_name, :avatar, to: :user
+  delegate :username, :display_name, to: :user
 
   # *** Likes section
 
@@ -117,6 +117,11 @@ class TweetPresenter
   end
 
 # *** Shared by all sections
+
+  def avatar
+    return user.avatar if user.avatar.present?
+    ActionController::Base.helpers.asset_path("person.png")
+  end
 
   def created_at
     if(Time.zone.now - tweet.created_at) > 1.day
