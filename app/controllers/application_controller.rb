@@ -18,7 +18,10 @@ class ApplicationController < ActionController::Base
     previous_path[:controller]
   end
 
+  helper_method :previous_controller_name
+
   def previous_action_name
     previous_path[:action]
   end
+  helper_method :previous_action_name
 end

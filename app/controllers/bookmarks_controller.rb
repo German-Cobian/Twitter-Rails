@@ -2,7 +2,6 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    puts "\n\n\n\n\n\n#{previous_controller_name}#{previous_action_name}\n\n\n\n\n\n"
     @bookmark = current_user.bookmarks.create(tweet: tweet)
 
     if @bookmark.save 

@@ -1,3 +1,9 @@
-<%= turbo_stream.replace dom_id(@tweet) do %>
-  <%= render partial: "tweets/tweet", locals: { tweet_presenter: TweetPresenter.new(tweet: @tweet, current_user: current_user) } %>
+<% if previous_controller_name == "tweets" && previous_action_name == "show" %>
+  <%= turbo_stream.replace dom_id(@tweet) do %>
+    <%= render partial: "tweets/show_stats", locals: { tweet_presenter: TweetPresenter.new(tweet: @tweet, current_user: current_user) } %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace dom_id(@tweet) do %>
+    <%= render partial: "tweets/tweet", locals: { tweet_presenter: TweetPresenter.new(tweet: @tweet, current_user: current_user) } %>
+  <% end %>
 <% end %>
