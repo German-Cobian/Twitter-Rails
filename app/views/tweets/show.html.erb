@@ -27,11 +27,9 @@
                 <p class=""><span class="fw-bold"><%= @tweet_presenter.likes_count %></span>  Likes</p>
               </div>
             </div>
-            <div id="turbo-frame-stats">
-              <%= turbo_frame_tag dom_id(@tweet_presenter.tweet) do %>
-                <%= render "tweets/show_stats", tweet_presenter: @tweet_presenter %>
-              <% end %>
-            </div>
+      
+            <%= render "show_stats", tweet_presenter: @tweet_presenter %>
+            
           </div>
           
         </div>
