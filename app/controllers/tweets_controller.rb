@@ -2,8 +2,8 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!
   
   def show
-    @tweet = Tweet.find(params[:id])
-    @tweet_presenter = TweetPresenter.new(current_user: current_user, tweet: @tweet)
+    create_view_record unless View.exists?(user: current_user, tweet: tweet)
+    @tweet_presenter = TweetPresenter.new(current_user: current_user, tweet: tweet)
   end
 
   def create
@@ -21,6 +21,14 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit( :body )
+  end
+
+  def tweet
+    @tweet ||= Tweet.find(params[:id]) # Memoise tweet for use in the show controller (tweet: tweet) and in create_view_record
+  end
+
+  def create_view_record
+    View.create(user: current_user, tweet: tweet)
   end
 
 end

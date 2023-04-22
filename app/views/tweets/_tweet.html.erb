@@ -12,9 +12,9 @@
 
     <div class="d-flex justify-content-between align-items-center action-links">
       <div>
-        <%= link_to "#", data: {"ignore-click": true }, class: "text-decoration-none text-black views" do %>
+        <%= link_to tweet_path(tweet_presenter.tweet),  target: :_top, data: {"ignore-click": true }, class: "text-decoration-none text-black views" do %>
           <%= image_tag "analytics.png", size: "20x20", class: "me-1" %>
-          <span>Views<span>
+          <span><%= tweet_presenter.views_count %><span>
         <% end %>
       </div>
       <div>
