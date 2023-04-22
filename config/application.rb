@@ -33,5 +33,7 @@ module TwitterRails
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # Set background tasks to run asynchonously on delayed_job
+    config.active_job.queue_adapter = :delayed_job
   end
 end
