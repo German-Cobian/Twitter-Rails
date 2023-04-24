@@ -1,39 +1,41 @@
-<%= turbo_frame_tag dom_id(@tweet), class:"col-6 d-flex flex-row border border-dark" do %>
-    <div class="d-flex flex-col">
-      <div class="ms-3">
-        <div>
-
-          <%= link_to dashboard_path, data: {turbo_frame: :_top}, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
-            <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
-            <span style="position: relative; top: 2px">Tweet</span>
-          <% end %>
-
-          <div data-tweet-path="<%= tweet_path(@tweet_presenter.tweet) %>" class="tweet py-3 px-2 border-bottom">
-            <div class="d-flex flex-row">  
-              <div class="me-2">
-                <%= image_tag @tweet_presenter.avatar, size: "40x40", class: "rounded-circle" %>
-              </div>
-              <div>
-                <p class="fw-bolder mb-0 mt-0"><%= @tweet_presenter.display_name %></p>
-                <p class="text-muted mb-1">@<%= @tweet_presenter.username %></p>
-                <p class="fs-2 mb-1"><%= @tweet_presenter.body %></p>
-                <p class="text-muted"><%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %> . <%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y") %></p>
-              </div>
-            </div>
-            <div class="border-top border-bottom my-2">
-              <div class="d-flex flex-row justify-content-start align-items-center mt-2">
-                <p class="me-5"><span class="fw-bold"><%= @tweet_presenter.views_count %></span>  Views</p>
-                <p class="me-5"><span class="fw-bold"><%= @tweet_presenter.retweets_count %></span>  Retweets</p>
-                <p class=""><span class="fw-bold"><%= @tweet_presenter.likes_count %></span>  Likes</p>
-              </div>
-            </div>
+<%= turbo_frame_tag dom_id(@tweet), class:"col-6 border border-dark" do %>
+  <div class="ms-3 me-3">
       
-            <%= render "show_stats", tweet_presenter: @tweet_presenter %>
-            
-          </div>
+    <div>
+      <%= link_to dashboard_path, data: {turbo_frame: :_top}, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
+        <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
+        <span style="position: relative; top: 2px">Tweet</span>
+      <% end %>
+    </div>
+
+    <div data-tweet-path="<%= tweet_path(@tweet_presenter.tweet) %>" class="tweet py-3 px-2 border-bottom">
+      <div class="d-flex flex-row">  
+        <div class="me-2">
+          <%= image_tag @tweet_presenter.avatar, size: "40x40", class: "rounded-circle" %>
+        </div>
+        <div>
+          <p class="fw-bolder mb-0 mt-0"><%= @tweet_presenter.display_name %></p>
+          <p class="text-muted mb-1">@<%= @tweet_presenter.username %></p>
+          <p class="fs-2 mb-1"><%= @tweet_presenter.body %></p>
+          <p class="text-muted"><%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %> . <%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y") %></p>
         </div>
       </div>
+      <div class="border-top border-bottom my-2">
+        <div class="d-flex flex-row justify-content-start align-items-center mt-2">
+          <p class="me-5"><span class="fw-bold"><%= @tweet_presenter.views_count %></span>  Views</p>
+          <p class="me-5"><span class="fw-bold"><%= @tweet_presenter.retweets_count %></span>  Retweets</p>
+          <p class=""><span class="fw-bold"><%= @tweet_presenter.likes_count %></span>  Likes</p>
+        </div>
+      </div>
+
+      <%= render "show_stats", tweet_presenter: @tweet_presenter %>
+  
     </div>
+
+    <div>
+      <%= render "shared/tweet_form", button_label: "Reply" %>
+    </div>
+  </div>
 <% end %>
 
 <div class="col-3 border border-danger">
