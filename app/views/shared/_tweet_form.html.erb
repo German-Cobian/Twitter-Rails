@@ -1,9 +1,13 @@
 <div class="tweet hover py-3 px-3" >
   <div class="flex-shrink-0 mb-3">
+    <% if current_user.avatar.present? %>
     <%= image_tag current_user.avatar, size: "40x40", class: "rounded-circle" %>
+    <% else %>
+      <%= image_tag "person.png", size: "40x40", class: "rounded-circle" %>
+    <% end %>
   </div>
   <div class="">
-    <%= form_with model: Tweet.new, url: tweets_path, method: :post, class: "w-100", data: { controller: "tweet-form" } do |f| %> 
+    <%= form_with model: Tweet.new, url: form_submit_path, method: :post, class: "w-100", data: { controller: "tweet-form" } do |f| %> 
       <%= f.text_area :body, placeholder: "What's happening", class: "form-control tweet-input w-100 mb-4" %>
       <div class="d-flex justify-content-end">
         <%= f.submit button_label, class: "btn btn-lg btn-twitter rounded-pill" %>

@@ -4,7 +4,7 @@
     <%= link_to "Home", dashboard_path, class: "fs-4 text-decoration-none text-black fw-semibold" %>
   </div>
   <div class="mb-4"> 
-    <%= render "shared/tweet_form", button_label: "Tweet" %>
+    <%= render "shared/tweet_form", form_submit_path: tweets_path, button_label: "Tweet" %>
   </div>
   <div id="tweets">
     <%= render partial: "tweets/tweet", collection: @tweets, as: :tweet_presenter %>

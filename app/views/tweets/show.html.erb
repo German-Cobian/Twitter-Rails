@@ -33,7 +33,7 @@
     </div>
 
     <div>
-      <%= render "shared/tweet_form", button_label: "Reply" %>
+      <%= render "shared/tweet_form", form_submit_path: tweet_reply_tweets_path(@tweet_presenter.tweet), button_label: "Reply" %>
     </div>
   </div>
 <% end %>
