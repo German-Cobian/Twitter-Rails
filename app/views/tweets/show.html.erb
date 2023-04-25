@@ -34,7 +34,9 @@
 
     <div>
       <%= render "shared/tweet_form", form_submit_path: tweet_reply_tweets_path(@tweet_presenter.tweet), button_label: "Reply" %>
-      <%= render partial: "tweets/tweet", collection: @reply_tweets_in_presenter, as: :tweet_presenter %>
+      <div id="reply_tweets">
+        <%= render partial: "tweets/tweet", collection: @reply_tweets_in_presenter, as: :tweet_presenter %>
+      </div>
     </div>
   </div>
 <% end %>
