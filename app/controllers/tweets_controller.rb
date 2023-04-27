@@ -3,8 +3,8 @@ class TweetsController < ApplicationController
   
   def show
     ViewTweetJob.perform_later(tweet: tweet, user: current_user)
-    @tweet_presenter = TweetPresenter.new(tweet: tweet, current_user: current_user)
-    @reply_tweets_in_presenter = tweet.reply_tweets.includes(:user, :liked_users, :bookmarked_users).order(created_at: :desc).map do |reply_tweet|
+      @tweet_presenter = TweetPresenter.new(tweet: tweet, current_user: current_user)
+      @reply_tweets_in_presenter = tweet.reply_tweets.includes(:user, :liked_users, :bookmarked_users).order(created_at: :desc).map do |reply_tweet|
       TweetPresenter.new(tweet: reply_tweet, current_user: current_user)
     end
   end
