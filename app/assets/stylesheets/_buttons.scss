@@ -7,3 +7,14 @@
     color: $white;
   }
 }
+
+.btn-twitter-outline {
+  background-color: white;
+  color: $twitter-blue;
+  border-color: $twitter-blue;
+
+  &:hover {
+    background-color: $twitter-blue;
+    color: white;
+  }
+}

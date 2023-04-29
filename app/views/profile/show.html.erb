@@ -1,1 +1,48 @@
-<h1>Profile Page</h1>
+<div class="col-6 border border-dark">
+
+    <div class="ms-3 me-3">
+      <div>
+        <%= link_to :back, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
+          <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
+          <span style="position: relative; top: 2px"><%= current_user.username %></span>
+          <span style="position-relative top: 2px;" class="text-muted fs-5"><%= current_user.tweets.size %> Tweets</span>
+        <% end %>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <% if current_user.avatar.present? %>
+          <%= image_tag current_user.avatar, size: "150x150", class: "rounded-circle" %>
+        <% else %>
+          <%= image_tag "person.png", size: "150x150", class: "rounded-circle" %>
+        <% end %>
+        <div><%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill" %></div> 
+      </div>
+      <div>
+          <p class="fs-3 fw-semibold"><%= current_user.display_name %><p>
+          <p class="text-muted">@<%= current_user.username %><p>
+          <p>Bio<p>
+          <div class="d-flex justify-content-start mb-3">
+            <div class="me-4">
+              <span><%= image_tag "location.png", size: "20x20", class: "me-2" %></span>
+              <span class="text-muted">Location</span>
+              </div>
+            <div class="me-4">
+              <span><%= image_tag "link.png", size: "30x20", class: "me-2" %></span>
+              <span class="text-muted">URL</span>
+            </div>
+            <div class="">
+              <span><%= image_tag "calendar.png", size: "20x20", class: "me-2" %></span>
+              <span class="text-muted">Join Date</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-start">
+            <div class="me-4" ><span class="fw-semibold">23</span>Following</div>
+            <div><span class="fw-semibold">35</span>Followers</div>
+          </div>
+      </div>
+    </div>
+</div>
+
+<div class="col-3 border border-danger">
+  <h4 class="text-danger ms-3">This is the Show third column</h4>
+</div>
+
