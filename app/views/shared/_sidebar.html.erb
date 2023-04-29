@@ -41,7 +41,7 @@
     </div>
   <% end %>
   <div class="d-flex align-items-center fs-5 mb-3"> 
-      <%= button_tag "Tweet", class: "btn btn-lg btn-twitter rounded-pill w-100 mx-4", data: { "bs-toggle": "modal", "bs-target": "#exampleModal"} %>
+      <%= button_tag "Tweet", class: "btn btn-lg btn-twitter rounded-pill w-100 mx-4", data: { "bs-toggle": "modal", "bs-target": "#tweetModal"} %>
     <!-- Line 44: instead of how it is called in bootstrap docs: data-bs-toggle="modal" data-bs-target="#exampleModal" -->
   </div>
   <div class="d-flex align-items-center fs-5 mb-3"> 
@@ -50,7 +50,7 @@
 </aside>
 
 <!-- Tweet form modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="tweetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
