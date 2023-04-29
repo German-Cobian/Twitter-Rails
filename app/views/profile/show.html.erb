@@ -1,25 +1,24 @@
 <div class="col-6 border border-dark">
-
-    <div class="ms-3 me-3">
-      <div>
-        <%= link_to :back, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
-          <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
-          <span style="position: relative; top: 2px"><%= current_user.username %></span>
-          <span style="position-relative top: 2px;" class="text-muted fs-5"><%= current_user.tweets.size %> Tweets</span>
-        <% end %>
-      </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <% if current_user.avatar.present? %>
-          <%= image_tag current_user.avatar, size: "150x150", class: "rounded-circle" %>
-        <% else %>
-          <%= image_tag "person.png", size: "150x150", class: "rounded-circle" %>
-        <% end %>
-        <div>
-          <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
-        </div> 
-      </div>
+  <div class="ms-3 me-3">
+    <div>
+      <%= link_to :back, class: "fs-4 text-decoration-none txt-black fw-semibold" do %>
+        <%= image_tag "back-arrow.png", size: "30x30", class: "me-5" %>
+        <span style="position: relative; top: 2px"><%= current_user.username %></span>
+        <span style="position-relative top: 2px;" class="text-muted fs-5"><%= current_user.tweets.size %> Tweets</span>
+      <% end %>
     </div>
-    <%= render "profile_section" %>
+    <div class="d-flex justify-content-between align-items-center">
+      <% if current_user.avatar.present? %>
+        <%= image_tag current_user.avatar, size: "150x150", class: "rounded-circle" %>
+      <% else %>
+        <%= image_tag "person.png", size: "150x150", class: "rounded-circle" %>
+      <% end %>
+      <div>
+        <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
+      </div> 
+    </div>
+  </div>
+  <%= render "profile_section" %>
 </div>
 
 <div class="col-3 border border-danger">
@@ -33,39 +32,38 @@
       <div class="modal-header border-bottom-0">
         <button type="button" class="close-modal-btn btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <h3>Profile Edit Modal</h3>
-      </div>
       <%= form_with model: current_user, url: profile_path, method: :put, data: {controller: "tweet-form"} do |f| %>
-        <div class="form-group">
-          <%= f.label :username, class: "form-label" %>
-          <%= f.text_field :username, class: "form-control" %>
+        <div class="ms-3 me-3">
+          <div class="form-group mb-2">
+            <%= f.label :username, class: "form-label" %>
+            <%= f.text_field :username, class: "form-control" %>
+          </div>
+          <div class="form-group mb-2">
+            <%= f.label :display_name, class: "form-label" %>
+            <%= f.text_field :display_name, class: "form-control" %>
+          </div>
+          <div class="form-group mb-2">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+          <div class="form-group mb-2">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <div class="form-group mb-2">
+            <%= f.label :bio, class: "form-label" %>
+            <%= f.text_field :bio, class: "form-control" %>
+          </div>
+          <div class="form-group mb-2">
+            <%= f.label :location, class: "form-label" %>
+            <%= f.text_field :location, class: "form-control" %>
+          </div>
+          <div class="form-group mb-2">
+            <%= f.label :url, class: "form-label" %>
+            <%= f.text_field :url, class: "form-control" %>
+          </div>
+          <%= f.submit "Update Profile", class: "btn btn-twitter rounded-pill mb-3" %>
         </div>
-        <div class="form-group">
-          <%= f.label :display_name, class: "form-label" %>
-          <%= f.text_field :display_name, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :password, class: "form-label" %>
-          <%= f.password_field :password, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :bio, class: "form-label" %>
-          <%= f.text_field :bio, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :location, class: "form-label" %>
-          <%= f.text_field :location, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :url, class: "form-label" %>
-          <%= f.text_field :url, class: "form-control" %>
-        </div>
-        <%= f.submit "Update Profile", class: "btn btn-twitter rounded-pill" %>
       <% end %>
     </div>
   </div>
