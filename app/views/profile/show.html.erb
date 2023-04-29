@@ -27,16 +27,16 @@
 </div>
 
 <!-- User Profile form modal -->
-<div class="modal fade" id="profile-edit-modal", tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="profile-edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
-        <button type="button" class="btn-close m-0" id="close-modal-btn", data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="close-modal-btn btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <h3>Profile Edit Modal</h3>
       </div>
-      <%= form_with model: current_user, url: profile_path, method: :put do |f| %>
+      <%= form_with model: current_user, url: profile_path, method: :put, data: {controller: "tweet-form"} do |f| %>
         <div class="form-group">
           <%= f.label :username, class: "form-label" %>
           <%= f.text_field :username, class: "form-control" %>

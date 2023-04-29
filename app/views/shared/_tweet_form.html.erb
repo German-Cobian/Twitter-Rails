@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div class="">
-    <%= form_with model: Tweet.new, url: form_submit_path, method: :post, class: "w-100", data: { controller: "tweet-form" } do |f| %> 
+    <%= form_with model: Tweet.new, url: form_submit_path, method: :post, class: "w-100", data: {controller: "tweet-form"} do |f| %> 
       <%= f.text_area :body, placeholder: "What's happening", class: "form-control tweet-input w-100 mb-4" %>
       <div class="d-flex justify-content-end">
         <%= f.submit button_label, class: "btn btn-lg btn-twitter rounded-pill" %>
