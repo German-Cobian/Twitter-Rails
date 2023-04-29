@@ -18,42 +18,20 @@
           <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
         </div> 
       </div>
-      <div>
-          <p class="fs-3 fw-semibold"><%= current_user.display_name %><p>
-          <p class="text-muted">@<%= current_user.username %><p>
-          <p class="text-muted"><%= current_user.bio %><p>
-          <div class="d-flex justify-content-start mb-3">
-            <div class="me-4">
-              <span><%= image_tag "location.png", size: "20x20", class: "me-2" %></span>
-              <span class="text-muted">Location</span>
-              </div>
-            <div class="me-4">
-              <span><%= image_tag "link.png", size: "30x20", class: "me-2" %></span>
-              <span class="text-muted">URL</span>
-            </div>
-            <div class="">
-              <span><%= image_tag "calendar.png", size: "20x20", class: "me-2" %></span>
-              <span class="text-muted">Join Date</span>
-            </div>
-          </div>
-          <div class="d-flex justify-content-start">
-            <div class="me-4" ><span class="fw-semibold">23</span>Following</div>
-            <div><span class="fw-semibold">35</span>Followers</div>
-          </div>
-      </div>
     </div>
+    <%= render "profile_section" %>
 </div>
 
 <div class="col-3 border border-danger">
   <h4 class="text-danger ms-3">This is the Show third column</h4>
 </div>
 
-<!-- Tweet form modal -->
-<div class="modal fade" id="profile-edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- User Profile form modal -->
+<div class="modal fade" id="profile-edit-modal", tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
-        <button type="button" class="btn-close m-0" id="close-modal-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close m-0" id="close-modal-btn", data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <h3>Profile Edit Modal</h3>
