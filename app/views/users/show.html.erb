@@ -8,17 +8,17 @@
       <% end %>
     </div>
     <div class="d-flex justify-content-between align-items-center">
-      <% if current_user.avatar.present? %>
-        <%= image_tag current_user.avatar, size: "150x150", class: "rounded-circle" %>
+      <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar, size: "150x150", class: "rounded-circle" %>
       <% else %>
         <%= image_tag "person.png", size: "150x150", class: "rounded-circle" %>
       <% end %>
       <div>
-        <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
+        <%= link_to "Follow", "#", class: "btn btn-twitter-outline rounded-pill" %>
       </div> 
     </div>
   </div>
-  <%= render "profile_section", user: current_user %>
+  <%= render "profile/profile_section", user: @user %>
 </div>
 
 <div class="col-3 border border-danger">
