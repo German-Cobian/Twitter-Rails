@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   put :profile, to: "profile#update"
 
   resources :usernames, only: [:new, :update]
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :followings, only: [:create, :destroy]
+  end
 end
