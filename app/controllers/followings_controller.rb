@@ -2,14 +2,25 @@ class FollowingsController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    following = user.followings.create(following_params )
-    redirect_to user_path(User.find(following_params[:following_user_id]))
+    following = user.followings.create(following_params)
+
+    respond_to do |format|
+      format.html do
+        redirect_to user_path(user)
+      end
+      format.turbo_stream
+    end
   end
 
   def destroy
+    user
     following = Following.find(params[:id])
     following.destroy
-    redirect_to user_path(User.find(following.following_user_id))
+    
+    respond_to do |format|
+      format.html { redirect_to user_path(user) }
+      format.turbo_stream
+    end
   end
 
   private
