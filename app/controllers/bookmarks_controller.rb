@@ -1,6 +1,13 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
   
+  def index
+    @bookmark_tweets = current_user.bookmarked_tweets
+    @tweet_presenters = current_user.bookmarked_tweets.map do |tweet|
+      TweetPresenter.new(tweet: tweet, current_user: current_user)
+    end
+  end
+
   def create
     @bookmark = current_user.bookmarks.create(tweet: tweet)
 

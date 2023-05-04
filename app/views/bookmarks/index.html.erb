@@ -1,0 +1,13 @@
+<div class="col-6 border border-dark">
+
+  <div class="mb-4">
+    <%= link_to "Bookmarks", bookmarks_path, class: "fs-4 text-decoration-none text-black fw-semibold" %>
+  </div>
+  <div id="tweets">
+    <%= render partial: "tweets/tweet", collection: @tweet_presenters, as: :tweet_presenter %>
+  </div>
+</div>
+ 
+<div class="col-3">
+  <h4 class="text-danger ms-3">This is the Dashboard third column</h4>
+</div>
