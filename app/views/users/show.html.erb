@@ -17,12 +17,15 @@
       <% if controller_name == "profile" %>
         <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
       <% else %>
-        <%= render "users/follow_button", user: @user, current_user: current_user %>
+        <%= render "users/follow_button", user: @user, current_user: current_user %> # Why the change?
       <% end %>
       </div> 
     </div>
   </div>
   <%= render "users/profile_section", user: @user %>
+  <div id="tweets">
+    <%= render partial: "tweets/tweet", collection: @tweet_presenters, as: :tweet_presenter %>
+  </div> 
 </div>
 
 <div class="col-3 border border-danger">
