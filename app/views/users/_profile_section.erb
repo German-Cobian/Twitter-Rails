@@ -1,4 +1,19 @@
 <%= turbo_frame_tag "profile-section" do %>
+ 
+  <div class="d-flex justify-content-between align-items-center">
+    <% if @user.avatar.present? %>
+      <%= image_tag @user.avatar, size: "150x150", class: "rounded-circle" %>
+    <% else %>
+      <%= image_tag "person.png", size: "150x150", class: "rounded-circle" %>
+    <% end %>
+    <div>
+    <% if controller_name == "profile" %>
+      <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
+    <% else %>
+      <%= render "users/follow_button", user: @user, current_user: current_user %> # Specifies 'user' in route to signal the controller user instead of profile
+    <% end %>
+    </div> 
+  </div>
   <div class="ms-3">
     <p class="fs-3 fw-semibold"><%= user.display_name %><p>
     <p class="text-muted">@<%= user.username %><p>

@@ -7,25 +7,9 @@
         <span style="position-relative top: 2px;" class="text-muted fs-5"><%= current_user.tweets.size %> Tweets</span>
       <% end %>
     </div>
-    <div class="d-flex justify-content-between align-items-center">
-      <% if @user.avatar.present? %>
-        <%= image_tag @user.avatar, size: "150x150", class: "rounded-circle" %>
-      <% else %>
-        <%= image_tag "person.png", size: "150x150", class: "rounded-circle" %>
-      <% end %>
-      <div>
-      <% if controller_name == "profile" %>
-        <%= button_tag "Edit Profile", class: "btn btn-twitter-outline rounded-pill", data: { "bs-toggle": "modal", "bs-target": "#profile-edit-modal"} %>
-      <% else %>
-        <%= render "users/follow_button", user: @user, current_user: current_user %> # Why the change?
-      <% end %>
-      </div> 
-    </div>
+    <%= render "users/profile_section", user: @user %>
+    <%= render partial: "users/tweets_collection", tweet_presenters: @tweet_presenters %>
   </div>
-  <%= render "users/profile_section", user: @user %>
-  <div id="tweets">
-    <%= render partial: "tweets/tweet", collection: @tweet_presenters, as: :tweet_presenter %>
-  </div> 
 </div>
 
 <div class="col-3 border border-danger">
@@ -69,6 +53,10 @@
             <div class="form-group mb-2">
               <%= f.label :url, class: "form-label" %>
               <%= f.text_field :url, class: "form-control" %>
+            </div>
+            <div class="form-group mb-2">
+              <%= f.label :avatar, class: "input-group-text" %>
+              <%= f.file_field :avatar, class: "form-control" %>
             </div>
             <%= f.submit "Update Profile", class: "btn btn-twitter rounded-pill mb-3" %>
           </div>
