@@ -4,7 +4,7 @@
       <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "twitter_icon.png", width: "32" %></span>
     </div>
   <% end %>
-  <%= link_to dashboard_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+  <%= link_to dashboard_path, class: "d-flex align-items-center fs-5 mb-2 #{'active' if controller_name == 'dashboard'}" do %>
     <div class="px-4 py-2 rounded-pill">
       <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "home.png", width: "32" %></span>
       Home
@@ -28,13 +28,13 @@
       Messages
     </div>
   <% end %>
-  <%= link_to bookmarks_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+  <%= link_to bookmarks_path, class: "d-flex align-items-center fs-5 mb-2 #{'active' if controller_name == 'bookmarks'}" do %>
     <div class="px-4 py-2 rounded-pill">
       <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "bookmark.png", width: "32", height: "32" %></span>
       Bookmarks
     </div>
   <% end %>
-  <%= link_to profile_path, class: "d-flex align-items-center fs-5 mb-2" do %>
+  <%= link_to profile_path, class: "d-flex align-items-center fs-5 mb-2 #{'active' if controller_name == 'profile'}" do %>
     <div class="px-4 py-2 rounded-pill">
       <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "user.png", width: "32" %></span>
       Profile

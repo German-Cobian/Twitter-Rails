@@ -8,7 +8,7 @@
       <% end %>
     </div>
     <%= render "users/profile_section", user: @user %>
-    <%= render partial: "users/tweets_collection", tweet_presenters: @tweet_presenters %>
+    <%= render partial: "users/tweets_collection", tweet_presenters: @tweet_presenters %> # Specifies 'user' in route to signal the controller user instead of profile
   </div>
 </div>
 
