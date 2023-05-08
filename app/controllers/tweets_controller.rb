@@ -22,10 +22,12 @@ class TweetsController < ApplicationController
 
   private
 
- 
-
   def tweet
     @tweet ||= Tweet.find(params[:id]) # Memoise tweet for use in the show controller (tweet: tweet) and in create_view_record
+  end
+
+  def tweet_params
+    params.require(:tweet).permit( :body )
   end
 
 end

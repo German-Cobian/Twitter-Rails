@@ -1,4 +1,6 @@
 class Tweet < ApplicationRecord
+  HASHTAG_REGEX = /(#\w+)/
+
   belongs_to :user
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
@@ -15,4 +17,14 @@ class Tweet < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 280}
   
+  before_save :parse_and_save_hashtags
+
+  def parse_and_save_hashtags
+    matches = body.scan(HASHTAG_REGEX)
+    return if matches.empty?
+
+    matches.flatten.each do |tag|
+      Hashtag.find_or_create_by(tag: tag)
+    end
+  end
 end
