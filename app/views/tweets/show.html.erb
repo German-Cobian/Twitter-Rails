@@ -16,7 +16,7 @@
         <div>
           <p class="fw-bolder mb-0 mt-0"><%= @tweet_presenter.display_name %></p>
           <p class="text-muted mb-1">@<%= @tweet_presenter.username %></p>
-          <p class="fs-2 mb-1"><%= @tweet_presenter.body %></p>
+          <%= @tweet_presenter.body_html(p_class: "fs-2 mb-1").html_safe %>
           <p class="text-muted"><%= @tweet_presenter.tweet.created_at.strftime("%l:%M %p") %> . <%= @tweet_presenter.tweet.created_at.strftime("%b %d, %Y") %></p>
         </div>
       </div>
