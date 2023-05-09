@@ -24,7 +24,7 @@ class Tweet < ApplicationRecord
     return if matches.empty?
 
     matches.flatten.each do |tag|
-      Hashtag.find_or_create_by(tag: tag)
+      Hashtag.find_or_create_by(tag: tag.delete("#"))
     end
   end
 end

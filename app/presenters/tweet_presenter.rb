@@ -9,8 +9,21 @@ class TweetPresenter
 
   attr_reader :tweet, :current_user
 
-  delegate :user, :body, :likes, :likes_count, :retweets_count, :views_count, :reply_tweets_count, to: :tweet
+  delegate :user, :likes, :likes_count, :retweets_count, :views_count, :reply_tweets_count, to: :tweet
   delegate :username, :display_name, to: :user
+
+ 
+  def body_html
+    texts = tweet.body.split(" ").map do |word|
+      if word.include?("#")
+        "<a class=\"twitter-link\">#{word}</a>"
+      else
+        word
+      end
+     
+    end
+    "<p>#{texts.join(" ")}</p>"
+  end
 
   # *** Likes section
 

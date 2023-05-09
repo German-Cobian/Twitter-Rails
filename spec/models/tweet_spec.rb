@@ -37,7 +37,7 @@ RSpec.describe Tweet, type: :model do
 
     context "when there are duplicate hashtags in the body" do
       it "does not create duplicate hashtags if already in the database table" do
-        Hashtag.create(tag: "standard")
+        Hashtag.create(tag: "#standard")
         expect do
           Tweet.create(user: user, body: "Your #standard unimaginative tweet")
         end.to change{Hashtag.count}.by(1)
