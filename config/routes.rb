@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookmarks, only: :index
+
+  # path will redefinethe hashtags path as explore
+  resources :hashtags, only: :index, path: "/explore"
 end
