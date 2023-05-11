@@ -1,0 +1,6 @@
+<% @hashtags.each do |hashtag| %>
+  <div class="hashtag px-3 py-3" data-controller="hashtag" data-url="<%= hashtag_path(hashtag) %>">
+    <p class="fw-bold mb-0">#<%= hashtag.tag %></p>
+    <p class="text-muted fs-6 mb-0"><%= hashtag.tweets.size %>Tweets</p>
+  </div>
+<% end %>

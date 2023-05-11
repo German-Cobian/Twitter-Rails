@@ -6,6 +6,9 @@ class HashtagsController < ApplicationController
   end
 
   def show
-    @hashtags = Hashtag.includes(:tweets)
+    @hashtag = Hashtag.find(params[:id])
+    @tweet_presenters = @hashtag.tweets.order(created_at: :desc).map do |tweet|
+      TweetPresenter.new(tweet: tweet, current_user: current_user)
+    end
   end
 end
