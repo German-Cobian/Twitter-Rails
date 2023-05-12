@@ -1,0 +1,10 @@
+<div class="hashtag-sidebar rounded p-1">
+  <p class="p-2 fs-4 fw-2 mb-0">What's happening?</div>
+  <% Hashtag.limit(10).each do |hashtag| %>
+    <div class="hashtag px-3 py-3" data-controller="hashtag" data-url="<%= hashtag_path(hashtag) %>" >
+        <p class="fw-bold mb-0">#<%= hashtag.tag %></p>
+        <p class="text-muted fs-6 mb-0"><%= hashtag.tweets.size %>Tweets</p>
+    </div>
+  <% end %>
+  <%= link_to "Show more", hashtags_path, class:"twitter-link p-2" %>
+</div>
