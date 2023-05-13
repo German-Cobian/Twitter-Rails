@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   # path will redefinethe hashtags path as explore
   resources :hashtags, only: [:index, :show], path: "/explore"
+  resources :message_threads, only: :index, path: "/messages"
+
 end

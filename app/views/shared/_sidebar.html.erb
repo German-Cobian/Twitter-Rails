@@ -22,7 +22,7 @@
       Notifications
     </div>
   <% end %>
-  <%= link_to "#", class: "d-flex align-items-center fs-5 mb-2" do %>
+  <%= link_to message_threads_path, class: "d-flex align-items-center fs-5 mb-2 #{nav_link_active?('message_threads')}" do %>
     <div class="px-4 py-2 rounded-pill">
       <span class="me-4 position-relative" style="bottom: 5px"><%= image_tag "envelope.png", width: "32" %></span>
       Messages
